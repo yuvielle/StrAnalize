@@ -6,8 +6,12 @@ import java.util.*;
 public class SearchProcessor {
 
     public static TreeMap process(){
-        if(SearchContext.init().getSearchString() == null || SearchContext.init().getPath() == null){
-            System.out.println("Не все параметры заданы");
+        if(!Validator.searchStringValidate(SearchContext.init().getSearchString())){
+            System.out.println("Строка поиска отсутствует или не валидна, повторите ввод");
+            return null;
+        }
+        if(!Validator.pathValidate(SearchContext.init().getPath())) {
+            System.out.println("Путь к директории отсутствует, или такая директория не существует, повторите ввод");
             return null;
         }
         FilesUtil fu=new FilesUtil();

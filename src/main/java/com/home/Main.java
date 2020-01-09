@@ -13,7 +13,7 @@ public class Main {
             System.out.println("путь не задан, но его можно задать при помощи команды -path c:\\mypath в консоли приложения");
         } else {
             SearchContext.init().add("path", args[0]);
-            System.out.println("путь к директории - " + args[0]+ " но его можно поменять при помощи команды -path c:\\mypath в консоли приложения");
+            System.out.println("путь к директории - " + args[0] + " но его можно поменять при помощи команды -path c:\\mypath в консоли приложения");
         }
 
         Scanner scan = new Scanner(System.in);
@@ -35,8 +35,6 @@ public class Main {
         } while (!input.equals("exit"));
     }
 
-
-
     public static void parse(String s){
         if(s.charAt(0) != '-') return;
         Pattern pattern = Pattern.compile("\\s");
@@ -52,5 +50,4 @@ public class Main {
             }
         //}
     }
-
 }
