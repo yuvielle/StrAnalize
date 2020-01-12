@@ -8,12 +8,12 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println(Messages.begin);
         if (args.length == 0) {
-            System.out.println("путь не задан, но его можно задать при помощи команды -path c:\\mypath в консоли приложения");
+            System.out.println(Messages.addPath);
         } else {
             SearchContext.init().add("path", args[0]);
-            System.out.println("путь к директории - " + args[0] + " но его можно поменять при помощи команды -path c:\\mypath в консоли приложения");
+            System.out.println(String.format(Messages.updatePath, args[0]));
         }
 
         Scanner scan = new Scanner(System.in);
@@ -21,6 +21,9 @@ public class Main {
         do {
             input = scan.nextLine();
             //System.out.println("i=" + input);
+            if(input.equals("help")){
+                System.out.println(Messages.help);
+            }
             if(input.equals("do"))
             {
                 TreeMap<BigDecimal, List<String>> result = SearchProcessor.process();
@@ -36,7 +39,7 @@ public class Main {
     }
 
     public static void parse(String s){
-        if(s.charAt(0) != '-') return;
+        if( s==null || s.length() == 0 || s.charAt(0) != '-') return;
         Pattern pattern = Pattern.compile("\\s");
         Matcher matcher = pattern.matcher(s);
         //while (matcher.find()) {

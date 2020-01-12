@@ -6,6 +6,7 @@ public class SearchContext {
 
     private String searchString;
     private String path;
+    private String encoding = "UTF-8";
 
     public String getSearchString() {
         return searchString;
@@ -13,6 +14,10 @@ public class SearchContext {
 
     public String getPath() {
         return path;
+    }
+
+    public String getEncoding() {
+        return encoding;
     }
 
     public static SearchContext init() {
@@ -28,6 +33,7 @@ public class SearchContext {
     public void add(String command, String param){
         if(command.equals("search")) searchString = param;
         if(command.equals("path")) path = param;
+        if(command.equals("encoding")) encoding = param;
     }
 
     @Override

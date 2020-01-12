@@ -7,16 +7,15 @@ public class SearchProcessor {
 
     public static TreeMap process(){
         if(!Validator.searchStringValidate(SearchContext.init().getSearchString())){
-            System.out.println("Строка поиска отсутствует или не валидна, повторите ввод");
+            System.out.println(Messages.searchStringUnvalid);
             return null;
         }
         if(!Validator.pathValidate(SearchContext.init().getPath())) {
-            System.out.println("Путь к директории отсутствует, или такая директория не существует, повторите ввод");
+            System.out.println(Messages.pathUnvalid);
             return null;
         }
         FilesUtil fu=new FilesUtil();
-        //"c:\\test"
-        Map<String,String> a = fu.getFiles(SearchContext.init().getPath(), "UTF-8");
+        Map<String,String> a = fu.getFiles(SearchContext.init().getPath(), SearchContext.init().getEncoding());
         SearchMatcher matcher = new SearchMatcher();
         TreeMap<BigDecimal, List<String>> result = new TreeMap<>(Collections.reverseOrder());
         for (Map.Entry<String, String> ab : a.entrySet()){

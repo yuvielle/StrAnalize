@@ -18,7 +18,7 @@ public class SearchMatcher {
         Integer count = 0;
 
         for(String s:string){
-            if(source.contains(s)){
+            if(source.toLowerCase().contains(s.toLowerCase())){
                 count = count + 1;
             }
         }
