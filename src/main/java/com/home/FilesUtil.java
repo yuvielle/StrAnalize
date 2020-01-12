@@ -12,6 +12,12 @@ import java.util.stream.Stream;
 
 public class FilesUtil {
 
+    /*
+    * метод осуществляет считывание файлов в память
+    * @param String path - путь
+    * @param encoding - кодировка для считывания
+    * @return Map<String,String> список файлов, ключ - имя файла, значение - контент
+    * */
     public Map<String,String> getFiles(String path, String encoding){
 
         Map<String,String> fc = new HashMap<>();
@@ -32,6 +38,12 @@ public class FilesUtil {
         return fc;
     }
 
+    /*
+    * метод осуществляет считывание файла в память
+    * @param String path - путь
+    * @param encoding - кодировка для считывания
+    * @return String контент файла
+    * */
     public String getContent(String filePath, String encoding) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(filePath));
         return new String(encoded, encoding);

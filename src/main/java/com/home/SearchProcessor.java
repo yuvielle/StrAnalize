@@ -5,6 +5,10 @@ import java.util.*;
 
 public class SearchProcessor {
 
+    /*
+    * метод осуществляет сортировку файлов по убыванию релевантности
+    * @return TreeMap сортированный список имён файлов
+    * */
     public static TreeMap process(){
         if(!Validator.searchStringValidate(SearchContext.init().getSearchString())){
             System.out.println(Messages.searchStringUnvalid);

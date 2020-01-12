@@ -38,6 +38,10 @@ public class Main {
         } while (!input.equals("exit"));
     }
 
+    /*
+    * метод осуществляет простейший парсинг комманд
+    * @param String s - строка комманды
+    * */
     public static void parse(String s){
         if( s==null || s.length() == 0 || s.charAt(0) != '-') return;
         Pattern pattern = Pattern.compile("\\s");
